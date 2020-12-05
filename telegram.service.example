@@ -1,0 +1,16 @@
+[Unit]
+Description=Telegram Uniswap TheGraph Bot
+After=multi-user.target
+[Service]
+Environment="UNISWAP_BOT_TOKEN=TOKEN"
+WorkingDirectory=/var/www/telegram-uniswap-thegraph-bot
+User=root
+Group=root
+ExecStart=/usr/bin/python3 /var/www/telegram-uniswap-thegraph-bot/main.py
+Type=idle
+Restart=on-failure
+RestartSec=5
+TimeoutStartSec=5
+
+[Install]
+WantedBy=multi-user.target
